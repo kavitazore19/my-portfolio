@@ -1,0 +1,100 @@
+/* =========================================================
+   index.css – GLOBAL styles: theme colours, fonts, resets
+   Component/section styles live in App.css
+   ========================================================= */
+
+/* ---------- Dark theme (default) ----------
+   App.jsx puts data-theme="dark" or data-theme="light" on the <html> tag.
+   Every colour on the site is one of these variables, so switching the
+   theme only has to change this list. */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b1220; /* dark navy page background */
+  --nav-bg: rgba(11, 18, 32, 0.85); /* navbar, slightly see-through */
+  --surface: #131d33; /* cards */
+  --surface-hover: #1a2742;
+  --border: #233252;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --purple: #a78bfa;
+  --teal: #2dd4bf;
+  --tag-bg: rgba(139, 92, 246, 0.15);
+  --tag-border: rgba(139, 92, 246, 0.35);
+  --accent-gradient: linear-gradient(135deg, #8b5cf6, #14b8a6);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --transition: 250ms ease; /* speed of all hover effects */
+}
+
+/* ---------- Light theme ---------- */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --nav-bg: rgba(246, 247, 251, 0.85);
+  --surface: #ffffff;
+  --surface-hover: #f1f2fa;
+  --border: #dfe3ee;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --purple: #6d28d9;
+  --teal: #0f766e;
+  --tag-bg: rgba(109, 40, 217, 0.08);
+  --tag-border: rgba(109, 40, 217, 0.25);
+  --accent-gradient: linear-gradient(135deg, #6d28d9, #0f766e);
+  --shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+/* ---------- Basic resets ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scrolling when a nav link is clicked */
+  scroll-padding-top: 80px; /* leave room for the fixed navbar */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+  line-height: 1.25;
+}
+
+a {
+  color: var(--purple);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Visible focus ring for keyboard users (accessibility) */
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect users who turned off animations in their OS settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
